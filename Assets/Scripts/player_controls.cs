@@ -14,7 +14,7 @@ public class player_controls : MonoBehaviour
     public ParticleSystem bubbles;
     bool bubbleBuffering = false;
 
-    public Vector2 turn;
+    private Vector2 turn;
 
     void Start()
     {
