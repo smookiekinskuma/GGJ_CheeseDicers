@@ -14,9 +14,12 @@ public class player_controls : MonoBehaviour
     public ParticleSystem bubbles;
     bool bubbleBuffering = false;
 
+    public Vector2 turn;
+
     void Start()
     {
         playerRB = this.GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -25,6 +28,10 @@ public class player_controls : MonoBehaviour
         Controls();
         Debug.Log(playerBreath);
         Debug.Log(Input.mouseScrollDelta.y);
+
+        turn.x += Input.GetAxis("Mouse X");
+        aim = Quaternion.Euler(0, (turn.x * 5), 0);
+        bubbles.transform.rotation = aim;
     }
 
     Dictionary<string, Vector3> moveVelocity = new Dictionary<string, Vector3>()
@@ -42,49 +49,49 @@ public class player_controls : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             direction = moveVelocity["MoveRight"];
-            aim = Quaternion.Euler(0, 90, 0);
+            //aim = Quaternion.Euler(0, 90, 0);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             direction = moveVelocity["MoveLeft"];
-            aim = Quaternion.Euler(0, -90, 0);
+            //aim = Quaternion.Euler(0, -90, 0);
         }
 
         if (Input.GetKey(KeyCode.W))
         {
             direction = moveVelocity["MoveFar"];
-            aim = Quaternion.Euler(0, 0, 0);
+            //aim = Quaternion.Euler(0, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             direction = moveVelocity["MoveNear"];
-            aim = Quaternion.Euler(0, 180, 0);
+            //aim = Quaternion.Euler(0, 180, 0);
         }
         
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
         {
             direction = moveVelocity["MoveRight"] + moveVelocity["MoveFar"];
-            aim = Quaternion.Euler(0, 45, 0);
+            //aim = Quaternion.Euler(0, 45, 0);
         }
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W))
         {
             direction = moveVelocity["MoveLeft"] + moveVelocity["MoveFar"];
-            aim = Quaternion.Euler(0, -45, 0);
+            //aim = Quaternion.Euler(0, -45, 0);
         }
 
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
         {
             direction = moveVelocity["MoveRight"] + moveVelocity["MoveNear"];
-            aim = Quaternion.Euler(0, 135, 0);
+            //aim = Quaternion.Euler(0, 135, 0);
         }
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S))
         {
             direction = moveVelocity["MoveLeft"] + moveVelocity["MoveNear"];
-            aim = Quaternion.Euler(0, -135, 0);
+            //aim = Quaternion.Euler(0, -135, 0);
         }
 
         direction = direction.normalized;
