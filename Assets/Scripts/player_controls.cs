@@ -49,49 +49,41 @@ public class player_controls : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             direction = moveVelocity["MoveRight"];
-            //aim = Quaternion.Euler(0, 90, 0);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             direction = moveVelocity["MoveLeft"];
-            //aim = Quaternion.Euler(0, -90, 0);
         }
 
         if (Input.GetKey(KeyCode.W))
         {
             direction = moveVelocity["MoveFar"];
-            //aim = Quaternion.Euler(0, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             direction = moveVelocity["MoveNear"];
-            //aim = Quaternion.Euler(0, 180, 0);
         }
         
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
         {
-            direction = moveVelocity["MoveRight"] + moveVelocity["MoveFar"];
-            //aim = Quaternion.Euler(0, 45, 0);
+            direction = moveVelocity["MoveRight"] + moveVelocity["MoveFar"]; 
         }
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W))
         {
             direction = moveVelocity["MoveLeft"] + moveVelocity["MoveFar"];
-            //aim = Quaternion.Euler(0, -45, 0);
         }
 
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
         {
             direction = moveVelocity["MoveRight"] + moveVelocity["MoveNear"];
-            //aim = Quaternion.Euler(0, 135, 0);
         }
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S))
         {
             direction = moveVelocity["MoveLeft"] + moveVelocity["MoveNear"];
-            //aim = Quaternion.Euler(0, -135, 0);
         }
 
         direction = direction.normalized;
