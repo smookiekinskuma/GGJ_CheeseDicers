@@ -16,11 +16,11 @@ TagManager:
   - TerrainSeeThroughBubble
   - PlayerSeeThroughBubble
   - KenneySeeThroughBubble
+  - PurpleSeeThroughBubble
   - 
-  - 
-  - 
-  - 
-  - 
+  - SeeThroughBubble
+  - TerrainNoBubbleChange
+  - HiddenEnemy
   - 
   - 
   - 
